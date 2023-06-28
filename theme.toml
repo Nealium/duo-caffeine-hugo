@@ -1,0 +1,17 @@
+name = "duo-caffine"
+license = "MIT"
+licenselink = "https://github.com/Nealium/duo-caffine-hugo/blob/master/LICENSE.md"
+description = "Basic darkly themed markdown hugo theme"
+homepage = "https://github.com/Nealium/duo-caffine-hugo"
+tags = ["minimal", "blog", "personal", "simple", "minimalist", "text-focussed", "dark", "rss"]
+features = ["blog", "Social media links", "Markdown", "Text focussed", "RSS feeds"]
+min_version = "0.38"
+
+[author]
+  name = "Neal Joslin"
+  homepage = "https://nealjoslin.com/"
+
+[original]
+  author = "Rahul Tiwari"
+  homepage = "https://rtiwari.me/"
+  repo = "https://github.com/ba11b0y/lekh.git"
