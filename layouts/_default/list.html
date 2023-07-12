@@ -13,14 +13,14 @@
   {{ range .Pages.ByPublishDate }}
 
     <article class="list">
-      <div class="article_header">
+      <header class="article_header">
         <h2 class="article_title">
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h2>
         <div class="article_meta">
           <time itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
         </div>
-      </div>
+      </header>
       <p class="article_summary">
         {{ .Summary }}
       </p>

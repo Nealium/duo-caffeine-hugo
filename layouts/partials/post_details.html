@@ -1,0 +1,105 @@
+
+<div id="post_details">
+  {{ $taxonomy := "tags" }} {{ with .Param $taxonomy }}
+    <div class="post_tags_container">
+      <h5>Tags:</h5>
+      <ul class="post_tags_list">
+        {{ range $index, $tag := . }}
+          {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
+            <li>
+              <a class="tag_item" href="{{ .Permalink }}">
+                <div class="tags_{{ $tag | urlize }}" >
+                  {{ $tag | urlize }}
+                </div>
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+
+
+  {{ if .Params.series }}
+    {{ $series := (index .Params.series 0 | urlize) }}
+    {{ $posts_in_series := (index .Site.Taxonomies.series $series).Pages.ByDate }}
+
+    {{ $posts_in_series_count := $posts_in_series | len }}
+    {{ $current_post_num := 0 }}
+
+    {{ $prev_post := false }}
+    {{ $next_post := true }}
+
+    {{ range $num,$post := $posts_in_series }}
+
+      {{ if eq $next_post false }}
+
+        <!-- current page has been hit-->
+        {{ $next_post = $post }}
+        {{ break }}
+
+      {{ else }}
+
+        {{ if eq $post.Permalink $.Page.Permalink }}
+
+          <!-- flag, the next page in loop is next_post -->
+          {{ $next_post = false }}
+          {{ $current_post_num = (add $num 1) }}
+
+        {{ else }}
+
+          <!-- loop'd page isn't current, store -->
+          {{ $prev_post = $post }}
+
+        {{ end }}
+
+      {{ end }}
+
+    {{ end }}
+
+    <div class="series_container">
+      <div>
+        <h5>Series:</h5>
+        <h5>
+          {{ with $.Site.GetPage (printf "/series/%s" $series) -}}
+            <a href="{{ . }}">{{ $series }}</a>
+          {{ end }}
+        </h5>
+      </div>
+      <div>
+        <h5>Post:</h5>
+        <h5>
+          {{ $current_post_num }}/{{ $posts_in_series_count }}
+        </h5>
+      </div>
+    </div>
+
+    <div class="series_navigation_links">
+      <div class="series_navigation">
+        {{ if $prev_post }}
+          <a href="{{$prev_post.Permalink}}" title="{{ $prev_post.Params.title}}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 10 16">
+              <path fill-rule="evenodd" d="M6 3L0 8l6 5v-3h4V6H6V3z"/>
+            </svg>
+            <h5>
+                Previous
+            </h5>
+          </a>
+        {{ end }}
+      </div>
+      <div class="series_navigation">
+        {{ if $next_post }}
+          <a href="{{$next_post.Permalink}}" title="{{ $next_post.Params.title }}">
+            <h5>
+              Next
+            </h5>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 10 16">
+              <path fill-rule="evenodd" d="M10 8L4 3v3H0v4h4v3l6-5z"/>
+            </svg>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+</div>

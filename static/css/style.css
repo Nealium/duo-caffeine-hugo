@@ -2,7 +2,7 @@ body {
   font-family: Consolas, monaco, monospace;
   line-height: 1.5em;
   font-size: 1em;
-  color: #D3D7CF;
+  color: #D5D5D1;
   background: #292824;
 }
 
@@ -17,22 +17,40 @@ a:hover {
   color: #a38259;
 }
 
+button{
+  cursor: pointer;
 
-/* h1, h2, strong { */
+}
+
 strong {
   color: #f7a56e;
 }
 
 h1 {
-  font-size: 1.6em;
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.8em;
 }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
+  font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin-bottom: .85em;
+  margin-top: .85em;
 }
 
 .muted {
@@ -63,10 +81,10 @@ div.container {
 main{
   margin: 1em;
   width: 65em;
+  max-width: 95%;
 }
 @media (min-width:50em) {
  main {
-  /* max-width:70% */
   max-width:65%
  }
 }
@@ -144,7 +162,7 @@ aside{
 #blog_name{
   font-size: 1.6em;
   word-spacing: 12rem;
-  line-height: 2.2rem;
+  line-height: 2.8rem;
 }
 #blog_name h1 {
   color: #f7a56e;
@@ -155,14 +173,148 @@ aside{
 #blog_name:hover a {
   color: #f7a56e;
 }
+#sidebar_toggle_container{
+  display: none;
+  text-align: center;
+}
+#sidebar_toggle_button{
+  text-align: center;
+  font-size: 1.2em;
+  width: 75%;
+  background: #3c3836;
+  border: 1px solid #3c3836;
+  color: #D5D5D1;
+  padding: .5em;
+  border-radius: 5em;
+}
+#sidebar_toggle_button:hover{
+  color: #a38259;
+  border-color: #a38259;
+  background-color: #2f2f2f;
 
+
+}
+#sidebar_extras{
+  display: block;
+}
 .taxonomy_table{
   width: 100%;
 }
 
-/* h1 { font-family: Consolas, monaco, monospace; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Consolas, monaco, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Consolas, monaco, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Consolas, monaco, monospace; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Consolas, monaco, monospace; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5667px; } */
+@media (max-width:50em) {
+  div.container{
+    padding-top: 0px;
+  }
+  aside{
+    width:100%;
+  }
+  #sidebar_container{
+    display: flex;
+    justify-content: center;
+  }
+  #blog_name{
+    width: 200px;
+  }
+  #blog_name h1{
+    margin-bottom: .5em;
+  }
+  #author_table{
+    height: 2em;
+    margin-top: auto;
+    margin-bottom: 2.1em;
+  }
+  #sidebar_toggle_container{
+    display: block;
+    margin-bottom: .2em;
+  }
+  #sidebar_extras{
+    display: none;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:.2em;
+  }
+}
 
-div.highlight{
+
+/* code blocks */
+div.code-block{
   border: 2px dashed #292824;
-  /* border: 2px groove #292824; */
+  overflow: hidden;
+}
+div.code-path{
+  margin-left: .25em;
+}
+div.chroma{
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+
+
+
+#post_details{
+  background: #3c3836;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+#post_details h5{
+  margin-bottom: 1em;
+  margin-top: 0px;
+  display: inline-block;
+}
+
+ul.post_tags_list{
+  margin-top: .5em;
+  display: inline-block;
+  padding-left: 0px;
+}
+ul.post_tags_list li {
+  display:inline;
+}
+ul.post_tags_list a.tag_item{
+  text-decoration:none;
+}
+ul.post_tags_list a.tag_item div {
+  display: inline-block;
+  padding-top: .1em;
+  padding-bottom: .1em;
+  padding-left: .5em;
+  padding-right: .5em;
+  border-radius: 1em;
+}
+div.series_container{
+  display:flex;
+  /* justify-content: space-between */
+}
+div.series_container div:last-child{
+  margin-left: 2em;
+
+}
+
+div.series_navigation_links{
+  display: flex;
+  justify-content: space-between;
+}
+div.series_navigation{
+  height: 45px;
+}
+div.series_navigation a{
+  text-decoration: none;
+}
+
+div.series_navigation h5{
+  color: #918970;
+  position: relative;
+  top: -17px;
+}
+div.series_navigation a:hover h5{
+  color: #a38259;
+}
+
+div.series_navigation svg{
+  fill: #918970;
+}
+div.series_navigation a:hover svg{
+  fill: #a38259;
 }

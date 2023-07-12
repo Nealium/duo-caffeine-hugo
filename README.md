@@ -11,7 +11,7 @@ This was adapted from the [Lekh](https://github.com/ba11b0y/lekh.git) theme
 ```bash
 # Goto site root directory
 git init
-git submodule add https://github.com/Nealium/duo-caffeine-hugo.git /themes/duo-caffeine
+git submodule add https://github.com/Nealium/duo-caffeine-hugo.git themes/duo-caffeine
 ```
 4. add `theme = duo-caffeine` in site config
 
