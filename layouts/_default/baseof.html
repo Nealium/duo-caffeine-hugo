@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
-  {{ partial "head.html" . }}
+  <head>
+    {{ partial "head.html" . }}
+
+    {{ block "extra_head" . }}{{ end }}
+
+  </head>
 
   <body>
     <div class="container">
 
       <main>
+
+        <div class="main_navigation">
+          {{ if not .IsHome }}
+            <div>
+              <a href="/">Home</a>
+            </div>
+          {{ end }}
+
+          <div>
+            <a href="/about">About</a>
+          </div>
+
+          <div>
+            <a href="/index.xml">
+              <i class="fas fa-rss"></i>
+            </a>
+          </div>
+        </div>
+
         {{ block "main" . }}{{ end }}
       </main>
 
       {{ partial "sidebar.html" . }}
-
 
     </div>
 

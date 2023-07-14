@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <div class="content_header">
+    <div class="content_title">{{ .Page.Title }}</div>
+  </div>
+
+  <div class="content_meta">
+    Items: <div class="content_count">{{ .Data.Pages | len }}</div>
+  </div>
+
+  {{ range .Pages.ByPublishDate }}
+
+    <article class="list">
+      <header class="article_header">
+        <h2 class="article_title">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+      </header>
+
+      <div class="article_meta">
+        Posts: {{ .Pages | len }}
+      </div>
+
+      <p class="article_summary">
+        {{ .Summary }}
+      </p>
+      <a href="{{ .Permalink }}">Read More</a>
+    </article>
+
+  {{ end }}
+
+{{ end }}

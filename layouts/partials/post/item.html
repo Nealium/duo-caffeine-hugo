@@ -1,0 +1,13 @@
+<article class="list">
+  <header class="article_header">
+    <h2 class="article_title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+  </header>
+
+  {{ partial "post/meta.html" (dict "context" . "last_mod" false) }}
+
+  <p class="article_summary">{{ .Summary }}</p>
+
+  <a href="{{ .Permalink }}">Read More</a>
+</article>

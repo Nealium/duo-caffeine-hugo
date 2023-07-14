@@ -1,32 +1,16 @@
 {{ define "main" }}
-  <div>{{ .Content }}</div>
-
-  <div class="content_header">
+  <div class="content_header no_meta">
     <div class="content_title">Recent</div>
   </div>
 
-  <!-- orders content according to the "publishdate" field in front matter -->
-  {{ range first (.Site.Params.PostLimit | default 4) (where .Site.RegularPages.ByPublishDate "Section" "posts") }}
+  {{ range first (.Site.Params.PostLimit | default 4) (where .Site.RegularPages.ByPublishDate "Section" "posts").Reverse }}
 
-    <article class="list">
-      <div class="article_header">
-        <h2 class="article_title">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h2>
-        <div class="article_meta">
-          <time itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
-        </div>
-      </div>
-      <p class="article_summary">
-        {{ .Summary }}
-      </p>
-      <a href="{{ .Permalink }}">Read More</a>
-    </article>
+    {{ partial "post/item.html" . }}
 
   {{ end }}
 
 
-  <h3 id="all_posts">
+  <h4 id="all_posts">
     <a href="posts/">View all posts</a>
-  </h3>
+  </h4>
 {{ end }}

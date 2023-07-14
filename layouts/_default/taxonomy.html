@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <div class="content_header">
+    <div class="content_title">{{ .Page.Title }}</div>
+
+    <a class="header_link" href="/{{ .Type }}">Back to {{ .Type }}</a>
+  </div>
+
+  <div class="content_meta">
+    Posts: <div class="content_count">{{ .Data.Pages | len }}</div>
+  </div>
+
+  {{ range .Pages.ByPublishDate }}
+
+    {{ partial "post/item.html" . }}
+
+  {{ end }}
+
+{{ end }}

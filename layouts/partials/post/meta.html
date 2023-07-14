@@ -1,0 +1,38 @@
+
+<div class="article_meta">
+  {{ $pubdate := .context.PublishDate.Format "2006-01-02" }}
+  <div class="article_meta_publish">
+    <time datetime="{{ .PublishDate }}">
+      {{ $pubdate }}
+    </time>
+  </div>
+
+  {{ if .last_mod }}
+    {{ if .context.Lastmod }}
+      {{ $lastmod := .context.Lastmod.Format "2006-01-02" }}
+      {{ if ne $lastmod $pubdate }}
+        <div class="article_meta_last_mod">
+          (Updated: <time datetime="{{ .Lastmod }}">{{ $lastmod }}</time>)
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <div class="article_tags">
+    {{ $taxonomy := "tags" }} {{ with .context.Param $taxonomy }}
+      <ul class="tags_list">
+        {{ range $index, $tag := . }}
+          {{ with $.context.Site.GetPage (printf "/%s/%s" $taxonomy $tag) }}
+            <li>
+              <a class="tag_item" href="{{ .Permalink }}">
+                <div class="tags_{{ $tag | urlize }}" >
+                  {{ $tag | urlize }}
+                </div>
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+</div>

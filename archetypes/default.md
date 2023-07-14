@@ -5,10 +5,11 @@ slug = ''
 date = {{ .Date }}
 
 title = '{{ replace .Name "-" " " | title }}'
-summary = ''
+summary = """
+
+"""
 
 tags = []
-categories = []
 series = []
 +++
 

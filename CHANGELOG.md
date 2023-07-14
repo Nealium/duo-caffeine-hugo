@@ -23,3 +23,20 @@
 * README submodule
 * `main` element getting cut off on smaller resolutions
 * Code block overflow
+ 
+### 1.0.2 (2023-08-13)
+
+##### New Features
+* Search feature
+* render-link to open external links in new tabs
+* `about` Page
+* Meta elements
+* Pagination
+* Git publish & updated dates
+* Tags in Post lists
+
+##### Changes
+* Removed categories
+* Navigation element instead of in header
+* Posts are now a partial
+* Single Posts' tags are now at the top

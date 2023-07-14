@@ -1,25 +1,5 @@
 
 <div id="post_details">
-  {{ $taxonomy := "tags" }} {{ with .Param $taxonomy }}
-    <div class="post_tags_container">
-      <h5>Tags:</h5>
-      <ul class="post_tags_list">
-        {{ range $index, $tag := . }}
-          {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
-            <li>
-              <a class="tag_item" href="{{ .Permalink }}">
-                <div class="tags_{{ $tag | urlize }}" >
-                  {{ $tag | urlize }}
-                </div>
-              </a>
-            </li>
-          {{ end }}
-        {{ end }}
-      </ul>
-    </div>
-  {{ end }}
-
-
   {{ if .Params.series }}
     {{ $series := (index .Params.series 0 | urlize) }}
     {{ $posts_in_series := (index .Site.Taxonomies.series $series).Pages.ByDate }}

@@ -1,44 +1,52 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/syntax.css">
-  <!-- End stylesheets -->
+{{ if .Summary }}
+  <meta name="description" content="{{ .Summary }}" />
+{{ else }}
+  <meta name="description" content="{{ .Site.Params.Description }}" />
+{{ end }}
 
-  <title>
-    {{ if .IsHome }}
-      {{ .Site.Title }}
-    {{ else }}
-      {{ .Page.Title }}
-    {{ end }}
-  </title>
+<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", "}}{{ end }}" />
 
-  <link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+{{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
 
-  {{ if ne .Site.Params.GoatCounterCode "" }}
-    <script data-goatcounter="{{ .Site.Params.GoatCounterCode }}" async src="//gc.zgo.at/count.js"></script>
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/syntax.css">
+
+<title>
+  {{ if .IsHome }}
+    {{ .Site.Title }}
+  {{ else }}
+    {{ .Page.Title }}
   {{ end }}
+</title>
 
-  <script src="/js/sidebar.js"></script>
+<link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<script src="/js/sidebar.js"></script>
+
+{{ if ne .Site.Params.GoatCounterCode "" }}
+  <script data-goatcounter="{{ .Site.Params.GoatCounterCode }}" async src="//gc.zgo.at/count.js"></script>
+{{ end }}
 
 
-  <style>
-    {{ range $type, $type_map := .Site.Params.styles }}
-      {{ range $key, $key_map := $type_map }}
-        .{{$type}}_{{$key}} {
-        {{ range $style_key, $style_value := $key_map }}
-          {{$style_key}}: {{$style_value}};
-        {{ end }}
-        }
+<style>
+  {{ range $type, $type_map := .Site.Params.styles }}
+    {{ range $key, $key_map := $type_map }}
+      .{{$type}}_{{$key}} {
+      {{ range $style_key, $style_value := $key_map }}
+        {{$style_key}}: {{$style_value}};
       {{ end }}
+      }
     {{ end }}
-  </style>
-
-
-</head>
+  {{ end }}
+</style>
