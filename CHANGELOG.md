@@ -40,3 +40,11 @@
 * Navigation element instead of in header
 * Posts are now a partial
 * Single Posts' tags are now at the top
+
+### 1.0.3 (2023-08-28)
+
+##### New Features
+* Favicon and Logo
+
+##### Changes
+* Replaced old sidebar name with logo
