@@ -1,5 +1,5 @@
 
-<div id="post_details">
+<div id="series_details">
   {{ if .Params.series }}
     {{ $series := (index .Params.series 0 | urlize) }}
     {{ $posts_in_series := (index .Site.Taxonomies.series $series).Pages.ByDate }}
@@ -42,7 +42,7 @@
         <h5>Series:</h5>
         <h5>
           {{ with $.Site.GetPage (printf "/series/%s" $series) -}}
-            <a href="{{ . }}">{{ $series }}</a>
+            <a href="{{ .Permalink }}">{{ $series }}</a>
           {{ end }}
         </h5>
       </div>
@@ -54,32 +54,34 @@
       </div>
     </div>
 
-    <div class="series_navigation_links">
-      <div class="series_navigation">
-        {{ if $prev_post }}
-          <a href="{{$prev_post.Permalink}}" title="{{ $prev_post.Params.title}}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 10 16">
-              <path fill-rule="evenodd" d="M6 3L0 8l6 5v-3h4V6H6V3z"/>
-            </svg>
-            <h5>
-                Previous
-            </h5>
-          </a>
-        {{ end }}
+    {{ if gt $posts_in_series_count 1 }}
+      <div class="series_navigation_links">
+        <div class="series_navigation">
+          {{ if $prev_post }}
+            <a href="{{$prev_post.Permalink}}" title="{{ $prev_post.Params.title}}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 10 16">
+                <path fill-rule="evenodd" d="M6 3L0 8l6 5v-3h4V6H6V3z"/>
+              </svg>
+              <h5>
+                  Previous
+              </h5>
+            </a>
+          {{ end }}
+        </div>
+        <div class="series_navigation">
+          {{ if $next_post }}
+            <a href="{{$next_post.Permalink}}" title="{{ $next_post.Params.title }}">
+              <h5>
+                Next
+              </h5>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 10 16">
+                <path fill-rule="evenodd" d="M10 8L4 3v3H0v4h4v3l6-5z"/>
+              </svg>
+            </a>
+          {{ end }}
+        </div>
       </div>
-      <div class="series_navigation">
-        {{ if $next_post }}
-          <a href="{{$next_post.Permalink}}" title="{{ $next_post.Params.title }}">
-            <h5>
-              Next
-            </h5>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 10 16">
-              <path fill-rule="evenodd" d="M10 8L4 3v3H0v4h4v3l6-5z"/>
-            </svg>
-          </a>
-        {{ end }}
-      </div>
-    </div>
+    {{ end }}
   {{ end }}
 
 </div>

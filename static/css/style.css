@@ -287,13 +287,13 @@ div.chroma{
 }
 
 
-#post_details{
+#series_details{
   background: #3c3836;
   padding: 1em;
   margin-bottom: 1em;
   width: 96%;
 }
-#post_details h5{
+#series_details h5{
   margin-bottom: 1em;
   margin-top: 0px;
   display: inline-block;

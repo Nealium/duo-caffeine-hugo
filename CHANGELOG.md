@@ -48,3 +48,9 @@
 
 ##### Changes
 * Replaced old sidebar name with logo
+
+### 1.0.4 (2023-08-30)
+
+##### Changes
+* Only show series navigation in posts when there's multiple posts
+* rename post.details to post.series
