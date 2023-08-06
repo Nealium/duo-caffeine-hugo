@@ -1,6 +1,6 @@
 
+{{ if .Params.series }}
 <div id="series_details">
-  {{ if .Params.series }}
     {{ $series := (index .Params.series 0 | urlize) }}
     {{ $posts_in_series := (index .Site.Taxonomies.series $series).Pages.ByDate }}
 
@@ -82,6 +82,5 @@
         </div>
       </div>
     {{ end }}
-  {{ end }}
-
 </div>
+{{ end }}
