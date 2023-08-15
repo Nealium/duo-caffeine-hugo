@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6{
   text-decoration: none;
 }
 
-p code{
+p code, ul code, ol code{
   background-color: #292824;
   padding-left: .8em;
   padding-right: .8em;

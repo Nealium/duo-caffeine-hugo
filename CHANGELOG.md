@@ -67,3 +67,12 @@
 ##### Fixes
 * CHANGELOG Dates
 * Series div no longer shows when not in a series
+
+### 1.0.7 (2023-08-14)
+
+##### New Features
+* Basic `Disqus` Comments (no formatting)
+* Keywords in template
+
+##### Fixes
+* CSS for code blocks in lists
