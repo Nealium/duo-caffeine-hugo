@@ -107,7 +107,14 @@
       <tr>
         {{ if ne .Site.Params.Resume "" }}
           <td><i class="fas fa-file-alt" aria-hidden="true"></i></td>
-          <td>&nbsp;<a href="/resume/{{ .Site.Params.Resume }}" target="_blank">Resume</a></td>
+          <td>
+            &nbsp;<a href="/resume/{{ .Site.Params.Resume }}" target="_blank">Resume</a>
+            {{ if .Site.Params.RawResume }}
+            <sup>
+              <a id="rawresume" href="/raw/resume" target="_blank">raw</a>
+            </sup>
+            {{end}}
+          </td>
         {{ end }}
       </tr>
       <tr>

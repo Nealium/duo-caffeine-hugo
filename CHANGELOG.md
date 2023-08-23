@@ -76,3 +76,8 @@
 
 ##### Fixes
 * CSS for code blocks in lists
+ 
+### 1.0.8 (2023-08-22)
+
+##### New Features
+* Raw Resume Link in sidebar, if setting is true

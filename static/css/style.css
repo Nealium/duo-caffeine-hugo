@@ -267,6 +267,9 @@ aside{
     margin-top: auto;
     margin-bottom: 2.1em;
   }
+  #rawresume{
+    font-style: italic;
+  }
   #sidebar_toggle_container{
     display: block;
     margin-bottom: .2em;
