@@ -119,8 +119,10 @@
       </tr>
       <tr>
         {{ if ne .Site.Params.Email "" }}
-          <td><i class="fas fa-envelope" aria-hidden="true"></i></td>
-          <td>&nbsp;<code>{{ .Site.Params.Email }}</code></td>
+          <td>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </td>
+          <td>&nbsp;<a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></td>
         {{ end }}
       </tr>
       <tr id="sidebar_extra_toggle">

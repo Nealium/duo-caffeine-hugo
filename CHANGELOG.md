@@ -22,7 +22,7 @@
 * README submodule
 * `main` element getting cut off on smaller resolutions
 * Code block overflow
- 
+
 ### 1.0.2 (2023-07-13)
 
 ##### New Features
@@ -76,8 +76,17 @@
 
 ##### Fixes
 * CSS for code blocks in lists
- 
+
 ### 1.0.8 (2023-08-22)
 
 ##### New Features
 * Raw Resume Link in sidebar, if setting is true
+
+### 1.0.9 (2023-08-23)
+
+##### New Features
+* MailTo link for email
+* Optional Comments
+
+##### Changes
+* Email no longer in a code block
