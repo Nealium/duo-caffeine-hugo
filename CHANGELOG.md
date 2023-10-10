@@ -90,3 +90,9 @@
 
 ##### Changes
 * Email no longer in a code block
+
+### 1.0.9 (2023-10-09)
+
+##### Changes
+* Updated Font Awesome
+* Reordered sidebar

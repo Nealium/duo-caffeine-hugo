@@ -101,6 +101,14 @@
     </div>
 
     <table id="author_table">
+      <tr>
+        {{ if ne .Site.Params.Email "" }}
+          <td>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </td>
+          <td>&nbsp;<a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></td>
+        {{ end }}
+      </tr>
       {{ range .Site.Params.profiles }}
         {{ partial "profile_link.html" . }}
       {{ end }}
@@ -115,14 +123,6 @@
             </sup>
             {{end}}
           </td>
-        {{ end }}
-      </tr>
-      <tr>
-        {{ if ne .Site.Params.Email "" }}
-          <td>
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </td>
-          <td>&nbsp;<a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></td>
         {{ end }}
       </tr>
       <tr id="sidebar_extra_toggle">
