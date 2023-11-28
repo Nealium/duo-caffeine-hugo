@@ -96,3 +96,8 @@
 ##### Changes
 * Updated Font Awesome
 * Reordered sidebar
+
+### 1.10.0 (2023-11-29)
+
+##### Changes
+* Updated to use the Monaspace Argon web font
