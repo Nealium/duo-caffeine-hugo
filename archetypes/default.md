@@ -1,16 +1,15 @@
-+++
-draft = true
+---
+draft: true
 
-slug = ''
-date = {{ .Date }}
+slug: ''
+date: {{ .Date }}
 
-title = '{{ replace .Name "-" " " | title }}'
-summary = """
+title: '{{ replace .Name "-" " " | title }}'
+summary: |
+  this is a summary
 
-"""
-
-tags = []
-keywords = []
-series = []
-+++
+tags: []
+keywords: []
+series: []
+---
 

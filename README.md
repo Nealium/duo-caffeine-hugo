@@ -1,7 +1,7 @@
-# Duo-Caffine-Hugo
+# Duo-Caffeine-Hugo
 
-A Hugo theme based on my vim colorscheme duo-caffeine, which itself was based off of an
-atom syntax [no-caffeine-syntax](https://github.com/thomaslindstrom/no-caffeine-syntax)
+A Hugo theme based on my vim colorscheme duo-caffeine, which itself was based
+off of an atom syntax [no-caffeine-syntax](https://github.com/thomaslindstrom/no-caffeine-syntax)
 
 This was adapted from the [Lekh](https://github.com/ba11b0y/lekh.git) theme
 

@@ -403,6 +403,8 @@ ul.tags_list a.tag_item div {
   border-radius: 1em;
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+  background: #918970;
+  color: #FFF;
 }
 
 div.series_container {

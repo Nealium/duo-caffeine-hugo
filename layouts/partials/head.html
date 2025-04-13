@@ -16,7 +16,7 @@
 
 <link rel="canonical" href="{{ .Permalink }}" />
 
-<link rel="stylesheet" href="/css/style.css?v=0.04">
+<link rel="stylesheet" href="/css/style.css?v=0.05">
 <link rel="stylesheet" href="/css/fonts.css?v=0.01">
 <link rel="stylesheet" href="/css/syntax.css">
 
@@ -45,7 +45,7 @@
     {{ range $key, $key_map := $type_map }}
       .{{$type}}_{{$key}} {
       {{ range $style_key, $style_value := $key_map }}
-        {{$style_key}}: {{$style_value}};
+        {{$style_key}}: {{$style_value}} !important;
       {{ end }}
       }
     {{ end }}
