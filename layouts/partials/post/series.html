@@ -1,7 +1,7 @@
 
 {{ if .Params.series }}
 <div id="series_details">
-    {{ $series := (index .Params.series 0 | urlize) }}
+    {{ $series := (index .Params.series 0 | lower) }}
     {{ $posts_in_series := (index .Site.Taxonomies.series $series).Pages.ByDate }}
 
     {{ $posts_in_series_count := $posts_in_series | len }}
