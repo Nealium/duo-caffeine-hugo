@@ -525,3 +525,11 @@ label.search_label {
 #search-results ul.tags_list a.tag_item {
   margin-left: 0.4em;
 }
+
+.highlight {
+  overflow-x: auto;
+}
+
+pre.chroma {
+  width: fit-content
+}

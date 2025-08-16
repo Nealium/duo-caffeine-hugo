@@ -1,7 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    {{ partial "head.html" . }}
+    {{ partial "style_head.html" . }}
+
+    <script defer src="/js/sidebar.js"></script>
+    <style>
+      {{ range $type, $type_map := .Site.Params.styles }}
+        {{ range $key, $key_map := $type_map }}
+          .{{$type}}_{{$key}} {
+          {{ range $style_key, $style_value := $key_map }}
+            {{$style_key}}: {{$style_value}} !important;
+          {{ end }}
+          }
+        {{ end }}
+      {{ end }}
+    </style>
 
     {{ block "extra_head" . }}{{ end }}
 

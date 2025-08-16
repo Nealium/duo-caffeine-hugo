@@ -33,21 +33,7 @@
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<script src="/js/sidebar.js"></script>
-
 {{ if ne .Site.Params.GoatCounterCode "" }}
-  <script data-goatcounter="{{ .Site.Params.GoatCounterCode }}" async src="//gc.zgo.at/count.js"></script>
+  <script defer data-goatcounter="{{ .Site.Params.GoatCounterCode }}" async src="//gc.zgo.at/count.js"></script>
 {{ end }}
 
-
-<style>
-  {{ range $type, $type_map := .Site.Params.styles }}
-    {{ range $key, $key_map := $type_map }}
-      .{{$type}}_{{$key}} {
-      {{ range $style_key, $style_value := $key_map }}
-        {{$style_key}}: {{$style_value}} !important;
-      {{ end }}
-      }
-    {{ end }}
-  {{ end }}
-</style>
